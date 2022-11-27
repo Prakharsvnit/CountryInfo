@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import CountryCard from "./components/CountryCard";
+import Box from "@mui/material/Box";
+import axios from "axios";
+
+const baseURL = "https://restcountries.com/v3.1/all";
 
 function App() {
+  const [countryData, setCountryData] = useState(null);
+
+  useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setCountryData(response.data);
+    });
+  }, []);
+
+  if (!countryData) return null;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Box sx={{ flexDirection: "row", display: "flex", flexWrap: "wrap",justifyContent: "center",mt:15}}>
+        <CountryCard countryData={countryData} />
+      </Box>
     </div>
   );
 }
