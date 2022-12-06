@@ -1,15 +1,19 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import {Box, CardContent, CardMedia, Typography, CardActionArea} from "@mui/material";
 
-export default function CountryCard({countryData}) {
+export default function CountryCard({ countryData }) {
   return (
     <>
       {countryData.map((item) => (
-        <Box sx={{ width: 340,border:1,mt:2,ml:2,mr:1,mb:1 }}>
+        /* When we mapping list, React needs a key for reference. In this case we dont have id,
+          and it's not a good practice take the index from the map. So we are passing the name of country as key.
+        */
+        
+        /* 
+          About this style inline, you can use just margin.
+           margin: TOP: 16px = 1rem || RIGHT: 8px = 0.5rem || BOTTOM: 8px = 0.5rem || LEFT: 16px = 1rem
+           as default broswer uses 16px 
+         */
+        <Box sx={{ width: 340, border:1, margin: '1rem 0.5rem 0.5rem 1rem' }} key={item.name}>
           <CardActionArea>
             <CardMedia
               component="img"
