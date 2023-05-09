@@ -24,7 +24,7 @@ function App() {
       </Typography>
       {countryData.length <= 0 && (
         <Typography sx={{ textAlign: "center" }}>
-          No Countries found!
+          Loading...
         </Typography>
       )}
       <Box
