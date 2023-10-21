@@ -26,8 +26,7 @@ export default function CountryCard({ countryData }) {
           <CardActionArea>
             <CardMedia
               component="img"
-              height="100%"
-              width="100%"
+              height="200"
               image={item.flags.png}
               alt="country_flag"
             />
